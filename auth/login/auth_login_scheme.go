@@ -16,3 +16,9 @@ type AuthLoginParams struct {
 	Password types.Password `required:"true"`
 	Remember bool           `comment:"Запомнить сессию"` // инлайн комментарий
 }
+
+// AuthLoginResponse — ответ на запрос
+type AuthLoginResponse struct {
+	// инлайн комментарий с наследованием родительского
+	UserID types.UserID `comment:"{super}, авторизованного пользователя"`
+}

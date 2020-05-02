@@ -19,5 +19,28 @@ func init() {
 				HostDEV: "auth.devmail.ru",
 			},
 		},
+		Rights: []draft.DocAccess{
+			{
+				ID:   draft.Access.Auth,
+				Name: "Auth",
+				Extra: []draft.DocAccessExtra{
+					{
+						Name: "mPOP",
+						Headers: struct {
+							Cookie string `json:"cookie" required:"true" comment:"mPOP-куки"`
+						}{"Mpop=...;"},
+						Params: struct {
+							Token string `json:"token" required:"true" comment:"mPOP-токен"`
+						}{"854724ce05861c2ce336e279039444a9%3A5441407e0..."},
+					},
+					{
+						Name: "OAuth",
+						Params: struct {
+							AccessToken string `json:"access_token" required:"true" comment:"OAuth-токен"`
+						}{"36ee693610a344929218133291cd27ca..."},
+					},
+				},
+			},
+		},
 	})
 }

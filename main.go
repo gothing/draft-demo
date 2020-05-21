@@ -12,7 +12,9 @@ const srv = "localhost:2047"
 
 func main() {
 	// Создаём API-контейнер
-	api := draft.Create()
+	api := draft.Create(draft.Config{
+		DevMode: true,
+	})
 
 	// Добавляем «сервисы»
 	api.Add(auth.Service)

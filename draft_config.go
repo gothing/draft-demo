@@ -1,11 +1,14 @@
 package main
 
-import "github.com/gothing/draft"
+import (
+	"github.com/gothing/draft"
+)
 
 func init() {
 	// Инициализируем GODRAFT :: DOC
 	draft.SetupDoc(draft.DocConfig{
-		FrontURL:    "https://gothing.github.io/draft-front/",
+		FrontURL: "https://gothing.github.io/draft-front/",
+		// FrontURL:    "http://localhost:3000/",
 		ActiveGroup: "demo",
 		Groups: []draft.DocGroup{
 			{"demo", "Demo", []string{"http://localhost:2047/godraft:scheme/"}},
@@ -16,7 +19,7 @@ func init() {
 				Name:    "Auth",
 				Host:    "auth.mail.ru",
 				HostRC:  "test.auth.mail.ru",
-				HostDEV: "auth.devmail.ru",
+				HostDEV: "localhost:2047",
 			},
 		},
 		Rights: []draft.DocAccess{
@@ -34,7 +37,8 @@ func init() {
 						}{"854724ce05861c2ce336e279039444a9%3A5441407e0..."},
 					},
 					{
-						Name: "OAuth",
+						Name:        "OAuth",
+						Description: "Читать [тут](https://oauth.net/2/)",
 						Params: struct {
 							AccessToken string `json:"access_token" required:"true" comment:"OAuth-токен"`
 						}{"36ee693610a344929218133291cd27ca..."},
